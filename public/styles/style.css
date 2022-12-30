@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  font-size: 62, 5%;
+  box-sizing: border-box;
+  font-family: "Unbounded", cursive;
+}
+body {
+  background-image: url("../images/bg1.jpg");
+  background-size: cover;
+}
+button {
+  cursor: pointer;
+}
+.container,
+.linkSpace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container {
+  /* background-image: linear-gradient(-25deg, #5cb8e4 0 30%, #181818 30% 100%); */
+  height: 95vh;
+  color: black;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+h1 {
+  text-shadow: 0 2px 4px white;
+}
+
+#toCopy {
+  visibility: hidden;
+}
+
+.linkPasteArea {
+  outline: none;
+  width: 30rem;
+  height: 2rem;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 0px 10px 25px black;
+}
+.linkPasteArea:focus {
+  box-shadow: 0px 10px 25px white;
+}
+#Button {
+  /* background-color: #5cb8e4; */
+  background-image: linear-gradient(50deg, #5cb8e4, #11f5ff);
+  width: 10rem;
+  height: 5rem;
+  border-radius: 20px;
+  border: 2px solid;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  box-shadow: 0 10px 15px black;
+}
+#Button:hover {
+  transition: 0.4s;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px white;
+  background-image: linear-gradient(10deg, #11f5ff, #5cb8f6);
+  text-shadow: 0px 2px 2px black;
+}
+
+.linkSpace {
+  height: 5rem;
+  color: white;
+  text-decoration: underline;
+  user-select: all;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  cursor: pointer;
+}
+.copyButton {
+  border-radius: 15px;
+  width: 5rem;
+  height: 3rem;
+  filter: drop-shadow(0px 0px 5px white);
+}
+.hidden {
+  visibility: hidden;
+}
+.copyButton:hover {
+  scale: 1.1;
+}
+footer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  font-size: 0.5rem;
+}
+a {
+  color: black;
+}
+@keyframes shake {
+  0% {
+    width: 30rem;
+    transform: translate(0px);
+  }
+  10% {
+    transform: translate(-1px);
+  }
+  20% {
+    transform: translate(2px);
+  }
+  30% {
+    transform: translate(-4px);
+  }
+  40% {
+    transform: translate(4px);
+  }
+  50% {
+    width: 30rem;
+    overflow: hidden;
+    transform: translate(-4px);
+  }
+  60% {
+    overflow: hidden;
+    width: 5rem;
+    transform: translate(4px);
+  }
+  70% {
+    overflow: hidden;
+    width: 5rem;
+    transform: translate(-4px);
+  }
+  80% {
+    overflow: hidden;
+    width: 5rem;
+    transform: translate(2px);
+  }
+  90% {
+    transform: translate(-1px);
+  }
+  100% {
+    width: 30rem;
+    transform: translate(1px);
+  }
+}
