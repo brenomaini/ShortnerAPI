@@ -10,31 +10,34 @@ document.addEventListener("DOMContentLoaded", () => {
 async function short() {
   const LinkToBeShortned = document.getElementById("LinkToBeShortned").value;
   const InputBar = document.getElementById("LinkToBeShortned");
+  try {
+    if (checkIfSiteHasHttp(LinkToBeShortned)) {
+      const linkShorted = await fetch(
+        `/.netlify/functions/short?link=${LinkToBeShortned}`
+      ).then((res) => {
+        return res.json();
+      });
 
-  if (checkIfSiteHasHttp(LinkToBeShortned)) {
-    const linkShorted = await fetch(
-      `/.netlify/functions/short?link=${LinkToBeShortned}`
-    ).then((res) => {
-      return res.json();
-    });
-
-    InputBar.style.animation = "shake 1.5s ease-in-out normal";
-    setTimeout(() => {
-      InputBar.style.animation = "none";
-      YourLink.innerText = linkShorted;
-      CopyToClipboard.classList.remove("hidden");
-    }, 1400);
-  } else {
-    if (LinkToBeShortned != "") {
       InputBar.style.animation = "shake 1.5s ease-in-out normal";
       setTimeout(() => {
         InputBar.style.animation = "none";
-        CopyToClipboard.classList.add("hidden");
-        YourLink.innerText = "Insert link with HTTP or HTTPS";
+        YourLink.innerText = linkShorted;
+        CopyToClipboard.classList.remove("hidden");
       }, 1400);
     } else {
-      YourLink.innerText = "Add link first";
+      if (LinkToBeShortned != "") {
+        InputBar.style.animation = "shake 1.5s ease-in-out normal";
+        setTimeout(() => {
+          InputBar.style.animation = "none";
+          CopyToClipboard.classList.add("hidden");
+          YourLink.innerText = "Insert link with HTTP or HTTPS";
+        }, 1400);
+      } else {
+        YourLink.innerText = "Add link first";
+      }
     }
+  } catch (error) {
+    console.log(error);
   }
 }
 

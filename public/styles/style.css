@@ -142,3 +142,19 @@ a {
     transform: translate(1px);
   }
 }
+
+@media (max-width: 720px) {
+  * {
+    font-size: 16px;
+  }
+
+  .linkPasteArea {
+    width: 50%;
+  }
+
+  #Button {
+    width: 10rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
