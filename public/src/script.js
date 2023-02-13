@@ -30,7 +30,7 @@ async function short() {
         setTimeout(() => {
           InputBar.style.animation = "none";
           CopyToClipboard.classList.add("hidden");
-          YourLink.innerText = "Insert link with HTTPS";
+          YourLink.innerText = "Insert link with HTTP or HTTPS";
         }, 1400);
       } else {
         YourLink.innerText = "Add link first";
@@ -42,7 +42,8 @@ async function short() {
 }
 
 function checkIfSiteHasHttp(link) {
-  const LinkHasHTTPorHTTPS = link.startsWith("https://") && link != "";
+  const LinkHasHTTPorHTTPS =
+    link.startsWith("https://" || "http://") && link != "";
 
   return LinkHasHTTPorHTTPS;
 }
